@@ -1,0 +1,48 @@
+-var topNav = 0
+
+doctype html
+html
+  head
+    title= title
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    //script(src='/javascripts/util.js')
+  body
+    block content
+      .wrapper
+        //.header
+          h1.header= title
+          h2.header= top_block_title
+        .top-nav
+          case topNav
+            when 0
+              a(href='#')
+              p Hi! Welcome to USC!
+            when 1 
+              p Menu 1
+            when 2
+              p Menu 2
+            default
+              p Menu 3+
+        .row
+          //include ../public/includes/column-left.pug
+          .column-center-unique
+            h2= center_block_title
+            form(action='/login', enctype='application/json', method='POST')
+              .row
+                .col-25
+                  label#nu_mobile Celular
+                .col-75
+                  input(type='text', name='nu_mobile', maxlength=13, pattern='[0-9]{2}[ ][0-9]{4,5}[-][0-9]{4}$', title='"99 99999-9999"', required='required', value='')
+              .row
+                .col-25
+                  label Senha
+                .col-75
+                  input(type='password', name='nm_password', maxlength=16, required='required', value='')
+              .row
+                .col-100
+                  label 
+                  input(type='submit', name='submit', value='Ok')
+          //.column-right
+        .footer

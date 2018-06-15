@@ -1,0 +1,109 @@
+doctype html
+html
+  head
+    title= title
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    //script(src='/javascripts/util.js')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+    //script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/validate.min.js')
+    script(src='/javascripts/jquery-fn-min.js')
+    script(src='/javascripts/jquery-users-search.js')
+  body
+    block content
+      .wrapper
+        //.header
+          h1.header= title
+          h2.header= top_block_title
+        .top-nav
+          //a(href='#')
+          a(href=appParams.app_protocol + '://' + appParams.app_server + ':' + appParams.app_port + '/users/change-password') Change Password
+          p Hi, #{session.userNickname}
+        .row
+          include ../public/includes/column-left.pug
+          .column-center
+            h2= center_block_title
+            form#search(action=action, enctype='application/json', method=method)
+              .row-form
+                .col-25
+                  label Name
+                .col-75
+                  input(type='text', name='nm_cn', maxlength=96, value=rows[0].nm_cn)
+              .row-form
+                .col-25
+                  label Nickname
+                .col-75
+                  input(type='text', name='nm_nickname', maxlength=64, value=rows[0].nm_nickname)
+              .row-form
+                .col-25
+                  label Mobile
+                .col-75
+                  input(type='text', name='nu_mobile', maxlength=13, value=rows[0].nu_mobile)
+              .row-form
+                .col-25
+                  label Gender
+                .col-75
+                  input(type='radio', name='id_gender', value='M')
+                  label M
+                  input(type='radio', name='id_gender', value='F')
+                  label F
+                  input(type='radio', name='id_gender', value='', checked='checked')
+                  label -
+              .row-form
+                .col-25
+                  label Birth Date
+                .col-75
+                  table(width='100%')
+                    tr
+                      td(width='50%')
+                        input(type='text', name='dt_born_from', maxlength=10, pattern='[0-9]{2}[/][0-9]{2}[/][0-9]{4}$', title='"dd/mm/aaaa"', value='')
+                      td(width='50%')
+                        input(type='text', name='dt_born_to', maxlength=10, pattern='[0-9]{2}[/][0-9]{2}[/][0-9]{4}$', title='"dd/mm/aaaa"', value='')
+              .row-form
+                .col-25
+                  label Birthday
+                .col-75
+                  input(type='text', name='qt_days_birth', maxlength=3, pattern='[0-9]{1,2}$', title='', value='')
+              .row-form
+                .col-25
+                  label Max Level
+                .col-75
+                  input(type='text', name='nu_level_max', maxlength=1, pattern='[0-9]{1}$', title='', value='')
+              .row-form
+                .col-25
+                  label Level
+                .col-75
+                  input(type='text', name='nu_level', maxlength=1, pattern='[0-3]{1}$', title='', value='')
+              .row-form
+                .row-form-block
+                  .row-form
+                    .col-25
+                      label Method
+                    .col-75
+                      input(type='radio', name='nm_send_method', value='email', checked='checked')
+                      label E-Mail
+                      input(type='radio', name='nm_send_method', value='sms' disabled=true)
+                      label SMS
+                  .row-form
+                    .col-25
+                      label Subject
+                    .col-75
+                      input(type='text', name='dc_subject', maxlength=64, required='required', value='')
+                  .row-form
+                    .col-25
+                      label Message
+                    .col-75
+                      //input(type='textarea', name='dc_message', maxlength=512, required='required', value='')
+                      textarea(name='dc_message', maxlength=2048, required='required', value='')
+              .row-form
+                .col-100
+                  label
+                  button#okButton(type='submit') Advance
+              .row-form
+                .col-100
+                  //input(type='hidden', name='id_user', value=rows[0].id_user)
+                  //input(type='hidden', name='id_parent_user', value=rows[0].id_parent_user)
+                  //input(type='hidden', name='cd_city', value=0)
+          .column-right
+        .footer

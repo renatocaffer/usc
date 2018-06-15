@@ -1,0 +1,29 @@
+.column-left
+  nav
+    h2= left_block_title
+    table
+      thead
+        tr
+          th(align='left')
+            a(href=appParams.app_protocol + '://' + appParams.app_server + ':' + appParams.app_port + '/users/insert') Insert User
+        tr
+          th(align='left')
+            a(href=appParams.app_protocol + '://' + appParams.app_server + ':' + appParams.app_port + '/users/list') List Users
+      - if (session.userLevel<=1) {
+        tr
+          th(align='left')
+            a(href=appParams.app_protocol + '://' + appParams.app_server + ':' + appParams.app_port + '/users/search') Search Users
+        tr
+          th(align='left')
+            a(href=appParams.app_protocol + '://' + appParams.app_server + ':' + appParams.app_port + '/users/send-message') Send Message
+      - }
+        tr
+          th(align='left')
+            a(href=appParams.app_protocol + '://' + appParams.app_server + ':' + appParams.app_port + '/logout') Logout
+      tbody
+        tr
+          td
+
+
+
+          

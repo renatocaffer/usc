@@ -1,0 +1,68 @@
+doctype html
+html
+  head
+    title= title
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    //script(src='/javascripts/util.js')
+    //include util.pug
+  body
+    block content
+      .wrapper
+        //.header
+          h1.header= title
+          h2.header= top_block_title
+        .top-nav
+          //a(href='#')
+          a(href=appParams.app_protocol + '://' + appParams.app_server + ':' + appParams.app_port + '/users/change-password') Change Password
+          p Hi, #{session.userNickname}
+        .row
+          include ../public/includes/column-left.pug
+          .column-center
+            h2 #{center_block_title} - Qtt: #{rows.length-1}
+            table
+              thead
+                tr
+                  th.opc Id
+                  th Name
+                  th.opc E-Mail
+                  th Mobile
+                  th.opc Qtt Preview
+                  th.opc Qtt Commited
+                  th
+              tbody
+                tr
+                  td.opc
+                    cel= rows[1].id_user
+                  td
+                    cel= rows[1].nm_cn
+                  td.opc
+                    cel= rows[1].nm_email
+                  td
+                    cel= rows[1].nu_mobile
+                  td.opc
+                    cel= rows[1].qt_min_members
+                  td.opc
+                    cel= rows[1].qt_ins_members
+                  td
+                    a(href='#')
+              - for (var i=2; i<rows.length; i++) {
+                tr
+                  td.opc
+                    cel= rows[i].id_user
+                  td
+                    cel= rows[i].nm_cn
+                  td.opc
+                    cel= rows[i].nm_email
+                  td
+                    cel= rows[i].nu_mobile
+                  td.opc
+                    cel= rows[i].qt_min_members
+                  td.opc
+                    cel= rows[i].qt_ins_members
+                  td
+                    a(href='#')
+              - }
+          .column-right
+        .footer

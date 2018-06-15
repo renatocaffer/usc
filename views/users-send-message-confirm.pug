@@ -1,0 +1,55 @@
+doctype html
+html
+  head
+    title= title
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    //script(src='/javascripts/util.js')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+    script(src='/javascripts/jquery-fn-min.js')
+    script(src='/javascripts/jquery-send-message.js')
+  body
+    block content
+      .wrapper
+        //.header
+          h1.header= title
+          h2.header= top_block_title
+        .top-nav
+          //a(href='#')
+          a(href=appParams.app_protocol + '://' + appParams.app_server + ':' + appParams.app_port + '/users/change-password') Change Password
+          p Hi, #{session.userNickname}
+        .row
+          include ../public/includes/column-left.pug
+          .column-center
+            h2= center_block_title
+            form#send_message(action=action, enctype='application/json', method=method)
+              .row-form
+                .col-100
+                  input(type='hidden', name='nm_cn', value=rows[0].nm_cn)
+                  input(type='hidden', name='nm_nickname', value=rows[0].nm_nickname)
+                  input(type='hidden', name='nu_mobile', value=rows[0].nu_mobile)
+                  input(type='hidden', name='id_gender', value=rows[0].id_gender)
+                  input(type='hidden', name='dt_born_from', value=rows[0].dt_born_from)
+                  input(type='hidden', name='dt_born_to', value=rows[0].dt_born_to)
+                  input(type='hidden', name='qt_days_birth', value=rows[0].qt_days_birth)
+                  input(type='hidden', name='nu_level_max', value=rows[0].nu_level_max)
+                  input(type='hidden', name='nu_level', value=rows[0].nu_level)
+                  input(type='hidden', name='nm_send_method', value=rows[0].nm_send_method)
+                  input(type='hidden', name='dc_subject', value=rows[0].dc_subject)
+                  input(type='hidden', name='dc_message', value=rows[0].dc_message)
+                  input#action(type='hidden', name='action')
+          .column-right
+        .footer
+      .confirm-box
+        center
+          p Confirma o envio de #{rows[0].qt_result} message(s) (#{rows[0].nm_send_method})?
+          //p Name: #{rows[0].nm_cn}
+          //p E-Mail: #{rows[0].nm_email}
+          //p Mobile: #{rows[0].nu_cel}
+          center
+            .row-form
+              .col-50
+                button#cancelButton(type='submit') Cancel
+              .col-50
+                button#confirmButton(type='submit') Confirm

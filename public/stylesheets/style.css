@@ -1,0 +1,329 @@
+/*Ensure that all HTML elements have the box-sizing property set to border-box.
+ This makes sure that the padding and border are included in the total width and height of the elements.*/
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow: auto;
+  padding: 0.00rem;
+  margin: 0.00rem;
+  background-color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /*font: 10vw;*/
+  /*font: 10px;*/
+  font-size: 10px; /* Media queries changes font size. Check below. */
+}
+
+div.wrapper {
+  /*overflow: auto;*/
+}
+
+div.header {
+  position: static; /* default positioning: static */
+  width: 100%;
+  /*height: 10.00rem;*/
+  border-radius: 0.33rem;
+  padding: 1.00rem;
+  /*background: url("../images/img_tree_bw.jpg");*/
+  text-align: center;
+  background: url("../images/img_tree.png");
+  background-position-x: 4.10rem;
+  background-color: ghostwhite;
+  background-size: 5.30rem 09.50rem;
+  background-repeat: no-repeat;
+  background-origin: padding-box;
+}
+
+div.top-nav {
+  overflow: hidden;
+  background-color: rgb(160, 105, 91);
+  /*background: url("../images/img_tree.png");*/
+}
+
+div.top-nav a {
+  float: left;
+  display: block;
+  padding: 1.00rem;
+  text-decoration: none;
+  text-align: center;
+  font-size: 1.00rem;
+  color: white;
+}
+
+div.top-nav a:hover {
+  background-color: white;
+  color: rgb(160, 105, 91);
+}
+
+div.top-nav p {
+  float: right;
+  display: block;
+  padding: 0.00rem;
+  margin-right: 1.00rem;
+  text-decoration: none;
+  text-align: center;
+  font-size: 1.00rem;
+  color: white;
+}
+
+div.row {
+  display: table;
+  width: 100%;
+  clear: both;
+  margin-top: 0.00rem;
+}
+
+div.row:after {
+  content: "";
+  display: table;
+  clear: both;
+  margin-top: 0.00rem;
+}
+
+[class*="column-"] {
+  position: sticky; /* default positioning: static */
+  float: none;
+  width: 100%;
+  padding: 1.00rem;
+  border-radius: 0.33rem;
+  border-color: lightgreen;
+  background-color: white;
+}
+
+div.footer {
+}
+
+div.confirm-box {
+  position: absolute; /* default positioning: static */
+  top: 0.00rem;
+  left: 0.00rem;
+  width: 20.00rem;
+  margin: auto;
+  padding: 1.5rem;
+  display: -webkit-box;
+  border-radius: 0.00rem;
+  background-color: rgb(160, 105, 91);
+  /*transform: translate(-50%, -50%);*/
+  /*overflow: scroll;*/
+  overflow: auto;
+  box-shadow: 0.50rem 0.50rem 0.50rem gray;
+  opacity: 0.25;
+}
+
+div.confirm-box p {
+  font-size: 1.25rem;
+  color: white;
+}
+
+div.row-form-block {
+  clear: both;
+  border-top-style: solid;
+  border-width: 0.10rem;
+  border-top-color: black;
+  background-color: white;
+}
+
+div.row-form {
+  /*display: table;*/
+  clear: both;
+}
+
+[class*="col-"] {
+  float: none;
+  width: 100%;
+  padding: 0.50rem;
+  border-radius: 0.33rem;
+}
+
+.col-100 {
+  text-align: center;
+}
+
+label {
+  padding: 0.75rem 0.75rem 0.75rem 0.00rem;
+  display: inline-block;
+  font-size: 1.00rem;
+}
+
+input[type=text], input[type=email], input[type=date], input[type=password], input[type=select] {
+  width: 100%;
+  padding: 0.50rem;
+  border: 0.0625rem solid lightgray;
+  border-radius: 0.25rem;
+  resize: vertical;
+  background-color: white;
+}
+
+input[type=textarea] {
+  width: 100%;
+  height: 10.00rem;
+  padding: 0.50rem;
+  box-sizing: border-box;
+  border: 0.0625rem solid lightgray;
+  border-radius: 0.25rem;
+  resize: vertical;
+}
+
+input[type=hidden] {
+  height: 0.00rem;
+}
+
+input[type=text]:focus, input[type=email]:focus, input[type=date]:focus, input[type=password]:focus {
+  background-color: lightgoldenrodyellow;
+}
+
+input[type=submit] {
+  float: none;
+  width: 10.00rem;
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  background-color: cadetblue;
+  color: white;
+}
+
+input[type=submit]:hover {
+  background-color: lightskyblue;
+}
+
+button {
+  float: left;
+  width: 8.00rem;
+  margin-top: 0.50rem;
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  background-color: cadetblue;
+  color: white;
+}
+
+button:hover {
+  background-color: rgb(139, 199, 201);
+}
+
+textarea {
+  width: 100%;
+  height: 10.00rem;
+  padding: 0.50rem;
+  box-sizing: border-box;
+  border: 0.0625rem solid lightgray;
+  border-radius: 0.25rem;
+  resize: vertical;
+}
+
+textarea:hover {
+  background-color: lightgoldenrodyellow;
+}
+
+a {
+  font-size: 1.00rem;
+  color: brown;
+}
+
+p {
+  font-size: 0.75rem;
+}
+
+table {
+  background-color: ghostwhite;
+  border-color: lightblue;
+}
+
+tr {
+  border: 0.0625rem;
+}
+
+th {
+}
+
+th.opc {
+  display: none;
+}
+
+td{
+}
+
+td.opc{
+  display: none;
+}
+
+cel {
+  padding: 0.00rem 0.00rem 0.00rem 0.00rem;
+  display: inline-block;
+  font-size: 0.75rem;
+}
+
+h1.header {
+  width: 100%;
+  text-align: center;
+  color: lightgray;
+}
+
+h2.header {
+  color: lightgray;
+  width: 100%;
+  text-align: center;
+}
+
+/* Responsive layout - when the screen is less than 768 wide, make the columns stack on top of each other instead of next to each other */
+@media screen and (min-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+  .column-left {
+    float: left;
+    width: 20%;
+  }
+  .column-center {
+    float: left;
+    width: 80%;
+  }
+  .column-center-unique {
+    float: none;
+    width: 50%;
+    margin-top: 3.00rem;
+    margin-left: 25%;
+  }
+  .column-right {
+    float: left;
+    width: 0%;
+  }
+  .col-25 {
+    float: left;
+    width: 25%;
+  }
+  .col-50 {
+    float: left;
+    width: 50%;
+  }
+  .col-75 {
+    float: left;
+    width: 75%;
+  }
+  .input[type=submit] {
+    float: both;
+  }
+  div.top-nav a {
+    float: left;
+    font-size: 1.00rem;
+  }
+  div.top-nav p {
+    float: right;
+    font-size: 1.00rem;
+  }
+  th.opc {
+    display: table-cell;
+  }
+  td.opc {
+    display: table-cell;
+  }
+}
+
+@media only screen and (orientation: portrait) {
+  body {
+    background-color: lightcoral;
+  }
+}

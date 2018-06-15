@@ -1,0 +1,44 @@
+doctype html
+html
+  head
+    title= title
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    //script(src='/javascripts/util.js')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+    script(src='/javascripts/jquery-fn-min.js')
+    script(src='/javascripts/jquery-delete.js')
+  body
+    block content
+      .wrapper
+        //.header
+          h1.header= title
+          h2.header= top_block_title
+        .top-nav
+          //a(href='#')
+          a(href=appParams.app_protocol + '://' + appParams.app_server + ':' + appParams.app_port + '/users/change-password') Change Password
+          p Hi, #{session.userNickname}
+        .row
+          include ../public/includes/column-left.pug
+          .column-center
+            h2= center_block_title
+            form#delete(action=action, enctype='application/json', method=method)
+              .row-form
+                .col-100
+                  input(type='hidden', name='id_user', value=rows[0].id_user)
+                  input#action(type='hidden', name='action')
+          .column-right
+        .footer
+      .confirm-box
+        center
+          p Delete user "#{rows[0].nm_nickname}"?
+          //p Nome: #{rows[0].nm_cn}
+          //p E-Mail: #{rows[0].nm_email}
+          //p Celular: #{rows[0].nu_cel}
+          center
+            .row-form
+              .col-50
+                button#cancelButton(type='submit') Cancel
+              .col-50
+                button#confirmButton(type='submit') Confirm
